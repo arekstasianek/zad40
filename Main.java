@@ -8,9 +8,12 @@ Kod bazowy programu Commit4_0:
 */
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-class Main {
+public class Main {
   public static void main(String[] args) {
     try {
       Service s = new Service();
@@ -31,13 +34,18 @@ class Main {
           String name = scanner.next();
           System.out.println("Podaj nazwisko studenta");
           String surname = scanner.next();
-          System.out.println("Podaj wiek studenta");
-          int age = scanner.nextInt();
-          System.out.println("Podaj ulicę studenta");
-          String ulica = scanner.next();
-          System.out.println("Podaj adres studenta");
-          String adres = scanner.next();
-          s.addStudent(new Student(name, surname, age, ulica, adres));
+          System.out.println("Podaj date urodzenia studenta (DD-MM-YYYY)");
+          String birthdateStr = scanner.next();
+          try {
+            LocalDate birthdate = LocalDate.parse(birthdateStr, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            System.out.println("Podaj ulicę studenta");
+            String ulica = scanner.next();
+            System.out.println("Podaj adres studenta");
+            String adres = scanner.next();
+            s.addStudent(new Student(name, surname, birthdate, ulica, adres));
+          } catch (DateTimeParseException e) {
+            System.out.println("Niepoprawny format daty. Podaj datę w formacie DD-MM-YYYY.");
+          }
           return;
         case 2:
           break;
