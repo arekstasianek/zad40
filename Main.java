@@ -15,23 +15,25 @@ class Main {
     try {
       Service s = new Service();
 
-     Scanner scanner = new Scanner(System.in);
+      Scanner scanner = new Scanner(System.in);
       int option;
 
-     System.out.println("Opcje:");
+      System.out.println("Opcje:");
       System.out.println("1 dodaj nowego studenta");
       System.out.println("2 wypisz studentów");
       System.out.println("0 wyjscie");
 
-    option = scanner.nextInt();
+      option = scanner.nextInt();
 
       switch (option) {
         case 1:
           System.out.println("Podaj imie studenta");
           String name = scanner.next();
+          System.out.println("Podaj nazwisko studenta");
+          String surname = scanner.next();
           System.out.println("Podaj wiek studenta");
           int age = scanner.nextInt();
-          s.addStudent(new Student(name, age));
+          s.addStudent(new Student(name, surname, age));
           return;
         case 2:
           break;
@@ -39,14 +41,12 @@ class Main {
           System.out.println("Wybrano opcje wyjscie");
           System.exit(0);
           break;
-
       }
+
       var students = s.getStudents();
       for(Student current : students) {
         System.out.println(current.ToString());
       }
-
-
     } catch (IOException e) {
 
     }

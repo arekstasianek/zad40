@@ -6,3 +6,5 @@ Janusz 40
 darek 33
 adam 24
 tomek 25
+tomek kkk 26
+tomek sss 27
