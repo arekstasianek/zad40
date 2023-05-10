@@ -33,7 +33,11 @@ class Main {
           String surname = scanner.next();
           System.out.println("Podaj wiek studenta");
           int age = scanner.nextInt();
-          s.addStudent(new Student(name, surname, age));
+          System.out.println("Podaj ulicę studenta");
+          String ulica = scanner.next();
+          System.out.println("Podaj adres studenta");
+          String adres = scanner.next();
+          s.addStudent(new Student(name, surname, age, ulica, adres));
           return;
         case 2:
           break;
