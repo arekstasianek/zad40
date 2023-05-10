@@ -2,3 +2,5 @@ Krzysztof 20
 Janusz 40
 Krzysztof 20
 Janusz 40
+4tomek 22
+darek 33
