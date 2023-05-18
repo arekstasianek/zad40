@@ -24,6 +24,7 @@ public class Main {
       System.out.println("Opcje:");
       System.out.println("1 dodaj nowego studenta");
       System.out.println("2 wypisz studentów");
+      System.out.println("3 wyszukaj i wypisz studenta");
       System.out.println("0 wyjscie");
 
       option = scanner.nextInt();
@@ -48,6 +49,20 @@ public class Main {
           }
           return;
         case 2:
+          var students = s.getStudents();
+          for (Student current : students) {
+            System.out.println(current.ToString());
+          }
+          break;
+        case 3:
+          System.out.println("Podaj imie studenta");
+          String searchName = scanner.next();
+          Student foundStudent = s.findStudentByName(searchName);
+          if (foundStudent != null) {
+            System.out.println(foundStudent.ToString());
+          } else {
+            System.out.println("Nie znaleziono studenta o podanym imieniu.");
+          }
           break;
         case 0:
           System.out.println("Wybrano opcje wyjscie");
@@ -55,10 +70,6 @@ public class Main {
           break;
       }
 
-      var students = s.getStudents();
-      for(Student current : students) {
-        System.out.println(current.ToString());
-      }
     } catch (IOException e) {
 
     }
