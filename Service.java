@@ -31,7 +31,8 @@ reader.close();
 return ret;
 }
 
-public Student findStudentByName(String name) throws IOException {
+public Collection<Student> findStudentsByName(String name) throws IOException {
+var ret = new ArrayList<Student>();
 var f = new FileReader("db.txt");
 var reader = new BufferedReader(f);
 String line = "";
@@ -41,11 +42,10 @@ if (line == null)
 break;
 Student student = Student.Parse(line);
 if (student.GetName().equals(name)) {
-reader.close();
-return student;
+ret.add(student);
 }
 }
 reader.close();
-return null;
+return ret;
 }
 }

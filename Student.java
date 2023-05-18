@@ -33,7 +33,6 @@ public class Student {
     }
     return Name + " " + Surname + " " + "Unknown" + " " + Ulica + " " + Adres;
 }
-
 public static Student Parse(String str) {
 String[] data = str.split(" ");
 if (data.length != 5)

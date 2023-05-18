@@ -57,11 +57,13 @@ public class Main {
         case 3:
           System.out.println("Podaj imie studenta");
           String searchName = scanner.next();
-          Student foundStudent = s.findStudentByName(searchName);
-          if (foundStudent != null) {
-            System.out.println(foundStudent.ToString());
+          var foundStudents = s.findStudentsByName(searchName);
+          if (!foundStudents.isEmpty()) {
+            for (Student student : foundStudents) {
+              System.out.println(student.ToString());
+            }
           } else {
-            System.out.println("Nie znaleziono studenta o podanym imieniu.");
+            System.out.println("Nie znaleziono studentów o podanym imieniu.");
           }
           break;
         case 0:
